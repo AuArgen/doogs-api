@@ -5,17 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Stock extends Model
+class Category extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        'good_id',
-        'count',
-        'address',
-    ];
+    protected $fillable = ['name'];
     public function good()
     {
-        return $this->belongsTo(Good::class);
+        return $this->hasMany(Good::class);
     }
 }

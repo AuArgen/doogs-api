@@ -8,4 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class Characteristic extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'good_id',
+        'name',
+        'value',
+    ];
+    public function good()
+    {
+        return $this->belongsTo(Good::class);
+    }
 }

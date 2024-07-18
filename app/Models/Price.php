@@ -8,4 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class Price extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'good_id',
+        'old',
+        'price',
+    ];
+    public function good()
+    {
+        return $this->belongsTo(Good::class);
+    }
 }

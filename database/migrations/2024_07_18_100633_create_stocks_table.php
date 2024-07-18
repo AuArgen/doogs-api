@@ -11,8 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('characteristics', function (Blueprint $table) {
+        Schema::create('stocks', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('good_id')->constrained();
+            $table->integer('count');
+            $table->string('address');
             $table->timestamps();
         });
     }
@@ -22,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('characteristics');
+        Schema::dropIfExists('stocks');
     }
 };
